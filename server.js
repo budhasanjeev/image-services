@@ -22,7 +22,7 @@ app.get('/auth', function(req, res) {
       scope: 'profile'
     }
   }, function (error, response, body) {
-    console.log(body);
+    console.log(JSON.stringify(response));
   });
 });
 
