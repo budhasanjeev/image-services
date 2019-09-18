@@ -2,6 +2,9 @@
   "name": "instant-test",
   "version": "1.0.0",
   "description": "This is an instant test app",
+  "engines": {
+    "node": "10.x"
+  },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/budhasanjeev/instant-test-app.git"
+    "url": "https://github.com/budhasanjeev/instant-test-app.git"
   },
   "author": "Sanjeev Budha",
   "license": "ISC",
