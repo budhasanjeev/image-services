@@ -15,10 +15,10 @@ app.get('/auth', function(req, res) {
   webclient.get({
     url: 'https://access.line.me/oauth2/v2.1/authorize',
     qs: {
-      response_type: 'string',
+      response_type: 'code',
       client_id: '1622665154',
       redirect_uri: 'https://secure-beach-84908.herokuapp.com/',
-      state: '1234',
+      state: 'sanjeev1234',
       scope: 'profile'
     }
   }, function (error, response, body) {
