@@ -1,2 +1,2 @@
-# instant-test-app
-This is an instant test of app. 
+# OAuth Services
+This is a Node JS app which will make OAuth simple.
