@@ -1,0 +1,63 @@
+/* tried making chronological order of arrangement */
+
+body {
+  margin: 0px;
+}
+
+#btn-line {
+  background-color: #00c300;
+  color: #fff;
+}
+
+#btn-facebook {
+  background-color: #254da1;
+  color: #fff;
+}
+
+#btn-instagram {
+  background-color: #811373;
+  color: #fff;
+}
+
+#btn-wechat {
+  background-color: #6da16f;
+  color: #fff;
+}
+
+#container {
+  height: auto;
+  width: 100%
+}
+
+.content {
+  margin-top: 10px;
+  justify-content: center;
+  display: flex;
+}
+
+.div-login-options {
+  margin-top: 90px; 
+  width: 80%;
+  padding: 60px;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.footer {
+  padding: 10px;
+  background-color: #20232b;
+  color: #fff;
+  text-align: center;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.header {
+  padding: 15px;
+  background-color: #20232b;
+  font-family: monospace, Courier, 'Courier New';
+  color: #fff;
+  text-align: center;
+}
+

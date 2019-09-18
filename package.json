@@ -1,0 +1,23 @@
+{
+  "name": "instant-test",
+  "version": "1.0.0",
+  "description": "This is an instant test app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/budhasanjeev/instant-test-app.git"
+  },
+  "author": "Sanjeev Budha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/budhasanjeev/instant-test-app/issues"
+  },
+  "homepage": "https://github.com/budhasanjeev/instant-test-app#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
