@@ -9,9 +9,17 @@ body {
   color: #fff;
 }
 
+#btn-line:hover{
+  background-color: #0a140a;
+}
+
 #btn-facebook {
   background-color: #254da1;
   color: #fff;
+}
+
+#btn-facebook:hover{
+  background-color: #0a140a;
 }
 
 #btn-instagram {
@@ -19,9 +27,17 @@ body {
   color: #fff;
 }
 
+#btn-instagram:hover{
+  background-color: #0a140a;
+}
+
 #btn-wechat {
   background-color: #6da16f;
   color: #fff;
+}
+
+#btn-wechat:hover{
+  background-color: #0a140a;
 }
 
 #container {

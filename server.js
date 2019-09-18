@@ -9,6 +9,14 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname+ '/views/index.html');
 });
 
+app.get('/auth', function(req, res) {
+
+  var appName = req.query.appName;
+
+  
+});
+
+
 app.listen(port, function() {
   console.log(`The app is listening at localhost:${port}`);
 });
