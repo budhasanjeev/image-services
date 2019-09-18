@@ -1,5 +1,6 @@
 
 console.log('client side code running.... ');
+var webclient = require("request");
 
 const lineButton = document.getElementById('btn-line');
 const facebookButton = document.getElementById('btn-facebook');
@@ -9,15 +10,17 @@ const wechatButton = document.getElementById('btn-wechat');
 lineButton.addEventListener('click', function(e) {
   console.log('LINE .....');
 
-  $.ajax({
+  webclient.get({
     url: 'https://access.line.me/oauth2/v2.1/authorize',
-    type: 'post',
-    success: function(res) {
-      console.log('success\n' + JSON.stringify(res));
-    },
-    error: function(err) {
-      console.log('error\n' + JSON.stringify(err));
+    qs: {
+      response_type: 'string',
+      client_id: '1622665154',
+      redirect_uri: 'https://secure-beach-84908.herokuapp.com/',
+      state: '1234',
+      scope: 'profile'
     }
+  }, function (error, response, body) {
+    console.log(body);
   });
 
 });
