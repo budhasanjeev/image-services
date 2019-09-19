@@ -77,3 +77,8 @@ body {
   text-align: center;
 }
 
+.div-spinner {
+  background-color: #cecece;
+  z-index: 99;
+  width: 100%;
+}

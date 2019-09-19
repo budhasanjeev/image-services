@@ -22,7 +22,7 @@ app.post('/auth', function(req, res) {
       scope: 'profile'
     }
   }, function (error, response, body) {
-    console.log(JSON.stringify(response));
+      res.send(body);
   });
 });
 
