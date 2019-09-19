@@ -27,14 +27,14 @@ passport.use(new LineStrategy(
     useAutoLogin: true,
     callbackURL: 'https://oauth-services-app.herokuapp.com/auth/line/callback'
   },
-  function(accessToken, refreshToken, profile, cb) {
-    return cb(null, profile);
+  function(accessToken, refreshToken, profile, done) {
+    return done(null, profile);
   }
 ));
 
 app.use(passport.initialize());
 
-app.get('/auth/line/callback', passport.authenticate('line'), function(req, res) {
+app.get('/auth/line/callback', passport.authenticate('line', { failureRedirect: '/login', successRedirect : '/' }), function(req, res) {
     res.redirect('/');
   }
 );
