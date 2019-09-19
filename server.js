@@ -5,12 +5,20 @@ const LineStrategy =  require('passport-line2');
 const path = require('path');
 const port = process.env.PORT || 3000;
 
-app.use(passport.initialize());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname+ '/views/index.html');
 });
+
+// serialize and deserialize user
+passport.serializeUser((user, done) => {
+  done(null, user)
+})
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj)
+})
 
 passport.use(new LineStrategy(
   {
@@ -20,19 +28,18 @@ passport.use(new LineStrategy(
     callbackURL: 'https://oauth-services-app.herokuapp.com/auth/line/callback'
   },
   function(accessToken, refreshToken, profile, cb) {
-    console.log('profile = '+ profile);
+    return cb(null, profile);
   }
 ));
 
+app.use(passport.initialize());
+
 app.get('/auth/line/callback', passport.authenticate('line'), function(req, res) {
-    res.send('secret');
+    res.redirect('/');
   }
 );
 
-app.post('/auth/line', passport.authenticate('line', {
-    scope: ['profile']
-  })
-);
+app.post('/auth/line', passport.authenticate('line'));
 
 app.listen(port, function() {
   console.log(`The app is listening at localhost:${port}`);
