@@ -37,6 +37,7 @@ app.post('/auth', function(req, res) {
       channelID: '1622665154',
       channelSecret: '25827f9a4dc09d5f27be48a54202acca',
       useAutoLogin: true,
+      scopeSeparator: ['openid', 'profile'],
       callbackURL: 'https://oauth-services-app.herokuapp.com/callback'
     },
 
