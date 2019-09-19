@@ -4,17 +4,20 @@ console.log('client side code running.... ');
 $('#btn-line').click(function(e) {
   console.log('LINE .....');
 
+  $('.fa-sync').removeClass('hide');
+
   $.ajax({
     url: 'auth',
     type: 'post',
 
     success: function(res) {
-      document.open();
-      document.write(res);
-      document.close();
+      console.log('res = '+ res);
     },
     error: function(err) {
       console.log('err = '+ err);
+    },
+    complete: function() {
+      $('.fa-sync').addClass('hide');
     }
   });
 

@@ -22,6 +22,8 @@
   "homepage": "https://github.com/budhasanjeev/instant-test-app#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "passport": "^0.4.0",
+    "passport-line2": "^1.0.0",
     "request": "^2.88.0"
   }
 }
