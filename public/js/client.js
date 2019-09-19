@@ -9,10 +9,11 @@ const wechatButton = document.getElementById('btn-wechat');
 
 lineButton.addEventListener('click', function(e) {
   console.log('LINE .....');
-
+  
   $.ajax({
     url: 'auth',
     type: 'post',
+
     success: function(res) {
       console.log('res = '+ res);
     },
