@@ -17,7 +17,6 @@ passport.use(new LineStrategy(
     channelID: '1622665154',
     channelSecret: '25827f9a4dc09d5f27be48a54202acca',
     useAutoLogin: true,
-    scopeSeparator: ['openid', 'profile'],
     callbackURL: 'https://oauth-services-app.herokuapp.com/auth/line/callback'
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -26,26 +25,14 @@ passport.use(new LineStrategy(
 ));
 
 app.get('/auth/line/callback', passport.authenticate('line'), function(req, res) {
-    res.redirect('/secret');
+    res.send('secret');
   }
 );
-
-app.get('/secret', isUserAuthenticated, (req, res) => {
-  res.send('You have reached the secret route');
-});
 
 app.post('/auth/line', passport.authenticate('line', {
     scope: ['profile']
   })
 );
-
-function isUserAuthenticated(req, res, next) {
-  if (req.user) {
-      next();
-  } else {
-      res.send('You must login!');
-  }
-}
 
 app.listen(port, function() {
   console.log(`The app is listening at localhost:${port}`);
