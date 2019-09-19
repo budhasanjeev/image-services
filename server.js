@@ -10,7 +10,7 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname+ '/views/index.html');
 });
 
-app.get('/auth', function(req, res) {
+app.post('/auth', function(req, res) {
 
   webclient.get({
     url: 'https://access.line.me/oauth2/v2.1/authorize',
