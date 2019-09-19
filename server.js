@@ -12,6 +12,11 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname+ '/views/index.html');
 });
 
+app.get('/callback', function(req, res) {
+
+  res.send("Done");
+});
+
 app.post('/auth', function(req, res) {
 
   // webclient.get({
@@ -36,6 +41,7 @@ app.post('/auth', function(req, res) {
     },
 
     function(accessToken, refreshToken, profile, cb) {
+      
       User.findOrCreate({ lineId: profile.id }, function (err, user) {
         return cb(err, user);
       });
