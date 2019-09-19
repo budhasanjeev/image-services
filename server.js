@@ -34,12 +34,12 @@ passport.use(new LineStrategy(
 
 app.use(passport.initialize());
 
-app.get('/auth/line/callback', passport.authenticate(passportLine.NAME), function(req, res) {
+app.get('/auth/line/callback', passport.authenticate(LineStrategy.NAME), function(req, res) {
     res.redirect('/');
   }
 );
 
-app.post('/auth/line', passport.authenticate(passportLine.NAME));
+app.post('/auth/line', passport.authenticate(LineStrategy.NAME));
 
 app.listen(port, function() {
   console.log(`The app is listening at localhost:${port}`);
