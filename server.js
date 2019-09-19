@@ -18,7 +18,7 @@ app.get('/callback', function(req, res) {
 });
 
 app.post('/auth', function(req, res) {
-
+  console.log("authentication..... ");
   // webclient.get({
   //   url: 'https://access.line.me/oauth2/v2.1/authorize',
   //   qs: {
@@ -40,9 +40,9 @@ app.post('/auth', function(req, res) {
       scopeSeparator: ['openid', 'profile'],
       callbackURL: 'https://oauth-services-app.herokuapp.com/callback'
     },
-
     function(accessToken, refreshToken, profile, cb) {
       
+      console.log('profile = '+ profile);
       User.findOrCreate({ lineId: profile.id }, function (err, user) {
         return cb(err, user);
       });
