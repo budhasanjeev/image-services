@@ -27,17 +27,20 @@ app.post('/auth', function(req, res) {
   //     res.send(body);
   // });
 
-  passport.use(new LineStrategy({
-    channelID: '1622665154',
-    channelSecret: '25827f9a4dc09d5f27be48a54202acca',
-    useAutoLogin: true,
-    callbackURL: 'https://oauth-services-app.herokuapp.com/'
-  }),
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ lineId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
-  });
+  passport.use(new LineStrategy(
+    {
+      channelID: '1622665154',
+      channelSecret: '25827f9a4dc09d5f27be48a54202acca',
+      useAutoLogin: true,
+      callbackURL: 'https://oauth-services-app.herokuapp.com/callback'
+    },
+
+    function(accessToken, refreshToken, profile, cb) {
+      User.findOrCreate({ lineId: profile.id }, function (err, user) {
+        return cb(err, user);
+      });
+    }
+  ));
 
 });
 
