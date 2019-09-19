@@ -7,9 +7,8 @@ $('#btn-line').click(function(e) {
   $('.fa-sync').removeClass('hide');
 
   $.ajax({
-    url: 'auth',
+    url: 'auth/line',
     type: 'post',
-
     success: function(res) {
       console.log('res = '+ res);
     },
