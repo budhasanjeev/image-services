@@ -2,7 +2,7 @@ const express = require('express');
 var cors = require('cors')
 const app = express();
 const passport = require('passport');
-const LineStrategy =  require('passport-line2');
+const LineStrategy =  require('passport-line');
 const path = require('path');
 const port = process.env.PORT || 3000;
 
