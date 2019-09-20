@@ -23,24 +23,13 @@ passport.use(new LineStrategy(
     callbackURL: 'https://oauth-services-app.herokuapp.com/auth/line/callback'
   },
   function(accessToken, refreshToken, profile, done) {
-    return done(null, profile);
+    User.findOrCreate({ id: profile.id }, function (err, user) {
+      return done(err, user);
+    });
   }
 ));
 
-// serialize user 
-passport.serializeUser(function(user, done) {
-  done(null, user)
-});
-
-// deserialize user
-passport.deserializeUser(function(obj, done) {
-  done(null, obj)
-});
-
-app.post('/auth/line/callback', passport.authenticate('line', { failureRedirect: '/login', successRedirect : '/' }), function(req, res) {
-    res.redirect('/');
-  }
-);
+app.post('/auth/line/callback', passport.authenticate('line', { failureRedirect: '/', successRedirect : '/' }));
 
 app.post('/auth/line', passport.authenticate('line'));
 
