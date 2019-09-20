@@ -1,4 +1,5 @@
 const express = require('express');
+var cors = require('cors')
 const app = express();
 const passport = require('passport');
 const LineStrategy =  require('passport-line2');
@@ -12,6 +13,7 @@ app.get('/', function(req, res) {
 });
 
 app.use(passport.initialize());
+app.use(cors())
 
 passport.use(new LineStrategy(
   {
