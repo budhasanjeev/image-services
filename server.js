@@ -23,9 +23,7 @@ passport.use(new LineStrategy(
     callbackURL: 'https://oauth-services-app.herokuapp.com/auth/line/callback'
   },
   function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate({ id: profile.id }, function (err, user) {
-      return done(err, user);
-    });
+    return done(null, profile);
   }
 ));
 
