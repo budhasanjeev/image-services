@@ -4,7 +4,7 @@ console.log('client side code running.... ');
 $('#btn-line').click(function(e) {
   console.log('LINE .....');
 
-  $('.fa-sync').removeClass('hide');
+  $('.loading').removeClass('hide');
 
   $.ajax({
     url: 'auth/line',
@@ -13,10 +13,10 @@ $('#btn-line').click(function(e) {
       console.log('res = '+ res);
     },
     error: function(err) {
-      console.log('err = '+ err);
+      console.log('err = '+ JSON.stringify(err));
     },
     complete: function() {
-      $('.fa-sync').addClass('hide');
+      $('.loading').addClass('hide');
     }
   });
 
