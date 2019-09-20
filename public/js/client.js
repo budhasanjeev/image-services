@@ -24,6 +24,23 @@ $('#btn-line').click(function(e) {
 
 $('#btn-facebook').click(function(e) {
   console.log('facebook .....');
+
+  $('.loading').removeClass('hide');
+
+  $.ajax({
+    url: 'auth/facebook',
+    type: 'post',
+    success: function(res) {
+      console.log('res = '+ res);
+    },
+    error: function(err) {
+      console.log('err = '+ JSON.stringify(err));
+    },
+    complete: function() {
+      $('.loading').addClass('hide');
+    }
+  });
+
 });
 
 $('btn-instagram').click(function(e) {

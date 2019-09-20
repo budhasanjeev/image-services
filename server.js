@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const passport = require('passport');
 const LineStrategy =  require('passport-line2');
+const FacebookStrategy = require('passport-facebook');
 const path = require('path');
 const port = process.env.PORT || 3000;
 
@@ -32,6 +33,18 @@ passport.use(new LineStrategy(
   }
 ));
 
+passport.use(new FacebookStrategy({
+  clientID: '1379715578872813',
+  clientSecret: '4893159dc84c367bd73bf1144b66d32f',
+  callbackURL: "https://oauth-services-app.herokuapp.com/auth/facebook/callback"
+},
+function(accessToken, refreshToken, profile, cb) {
+  User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+    return cb(err, user);
+  });
+}
+));
+
 app.use(passport.initialize());
 
 app.get('/auth/line/callback', passport.authenticate('line', { failureRedirect: '/login', successRedirect : '/' }), function(req, res) {
@@ -39,7 +52,14 @@ app.get('/auth/line/callback', passport.authenticate('line', { failureRedirect: 
   }
 );
 
+app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login', successRedirect : '/' }), function(req, res) {
+  res.redirect('/');
+}
+);
+
 app.post('/auth/line', passport.authenticate('line'));
+
+app.post('/auth/facebook', passport.authenticate('facebook'));
 
 app.listen(port, function() {
   console.log(`The app is listening at localhost:${port}`);
