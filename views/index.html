@@ -30,7 +30,7 @@
           </h4>
           <hr style="border-bottom: 1px solid #fff">
 
-          <button class="btn btn-lg" id="btn-line"><i class="fab fa-line"></i> LINE</button>
+          <button class="btn btn-lg" id="btn-line"><i class="fab fa-google"></i> Google</button>
         
           <button class="btn btn-lg" id="btn-facebook"><i class="fab fa-facebook-square"></i> Facebook</button>
 
@@ -54,5 +54,25 @@
     <script src="./js/jquery-3.4.1.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/client.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-auth.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBoZ8KHu-HrcLX_FDDVrOB45NA7uy45DIg",
+        authDomain: "oauth-services.firebaseapp.com",
+        databaseURL: "https://oauth-services.firebaseio.com",
+        projectId: "oauth-services",
+        storageBucket: "",
+        messagingSenderId: "616349154903",
+        appId: "1:616349154903:web:d108bf26c0cf66886d2d12"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+
+    </script>
   </body>
 </html>
