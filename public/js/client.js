@@ -7,14 +7,13 @@ $('#btn-line').click(function(e) {
   var provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('profile');
   provider.addScope('email');
-  
-  console.log('provider '+ JSON.stringify(provider));
+
   firebase.auth().signInWithRedirect(provider).then(function(result) {
     return firebase.auth().getRedirectResult();
   }).then(function() {
     var token = result.credential.accessToken;
     var user = result.user;
-    console.log("token = "+ token);
+    alert("token = "+ token);
   }).catch(function(error) {
     console.log("error = "+ error);
   });
