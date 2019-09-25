@@ -4,20 +4,6 @@ console.log('client side code running.... ');
 $('#btn-line').click(function(e) {
   console.log('LINE .....');
 
-  var provider = new firebase.auth.GoogleAuthProvider();
-  provider.addScope('profile');
-  provider.addScope('email');
-
-  firebase.auth().signInWithRedirect(provider).then(function(result) {
-    return firebase.auth().getRedirectResult();
-  }).then(function() {
-    var token = result.credential.accessToken;
-    var user = result.user;
-    alert("token = "+ token);
-  }).catch(function(error) {
-    console.log("error = "+ error);
-  });
-
 });
 
 $('#btn-facebook').click(function(e) {
