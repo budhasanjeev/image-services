@@ -1,2 +1,2 @@
 # OAuth Services
-This is a Node JS app which will make OAuth simple.
+This is a Node JS app for different image services.
