@@ -2,12 +2,12 @@
 <html>
 
   <head>
-    <title>Training Services</title>
+    <title>Image Services</title>
 
     <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="./css/all.min.css" rel="stylesheet" type="text/css">
     <link href="./css/index.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" type="image/png" href="./img/logo.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico"/>
   </head>
 
   <body>
@@ -15,32 +15,37 @@
     <div id="container">
 
       <div class="header">
-        <img src="./img/logo.png" alt="OAuth Services" style="max-height: 80px">
+        <img src="./img/favicon-32x32.png" alt="OAuth Services" style="max-height: 100px">
         
-        <p>In process of making simple things simple and complicated things possible</p>
-        
+        <p style="margin: auto;">A digital image is numeric representation of two dimensional image.</p>
       </div>
       
       <div class="content container-fluid" style="flex-direction: column; width: 80%; margin: auto">
 
-          <h2 style="margin: 12px;">Convert Images into Base64</h2>
+          <h3 style="margin: 10px;">Convert Images into Base64</h3>
 
-          <div class="file-chooser" style="margin: 12px;">
-            <label for="image-file">Choose File</label>
-            <input type="file" id="image-file">
+          <div style="margin: 12px;display: flex;">
+            <div id="file-chooser">
+              <label for="image-file">Choose File</label>
+              <input type="file" id="image-file">  
+            </div>
+            
+            <div id="btn-group">
+              <buttton type="button" class="btn btn-primary" id="convert-btn">Convert</buttton>
+              <buttton type="button" class="btn btn-success" id="download-btn">Download</buttton>  
+            </div>
+           
           </div>
+
 
           <div class="base64-div" style="margin: 12px;">
             <label for="base64-code">Base64 Representation of your uploaded image.</label>
             <textarea style="height: 317px;width: 800px;" id="base64-code"></textarea>
           </div>
-
-          <buttton type="button" id="convert-btn" style="margin: 12px auto; width: 200px;">Convert</buttton>
-
       </div>
 
       <div class="footer"> 
-        <p>&copy; 2019 Training Services. Terms of Service.</p>
+        <p>&copy; 2019 Image Services. Terms of Service.</p>
       </div>
 
       <div class="loading style-2 hide">
